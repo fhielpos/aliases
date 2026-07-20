@@ -14,3 +14,5 @@ alias release-patch='main && git checkout -b "main#release#patch" && git push or
 alias release-minor='main && git checkout -b "main#release#minor" && git push origin "main#release#minor" && git checkout main && git branch -D "main#release#minor"'
 alias release-major='main && git checkout -b "main#release#major" && git push origin "main#release#major" && git checkout main && git branch -D "main#release#major"'
 alias update-chart='git checkout -b "main#update-chart" && git push origin "main#update-chart" && git checkout main && git branch -D "main#update-chart"'
+alias signall="git rebase @{u} --exec \"git commit --amend --no-edit -S\""
+alias gitclean='git branch -vv | awk '\''$1 != "*" && $3 !~ /^\[/ {print $1}'\'' | xargs -r git branch -d'
